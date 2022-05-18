@@ -8,10 +8,13 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatCardModule} from '@angular/material/card';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ContactDetailsFormComponent } from './contact-details-form/contact-details-form.component';
+import { FileUploadStepperComponent } from './file-upload-stepper/file-upload-stepper.component';
 
 
 
@@ -19,7 +22,8 @@ import { ContactDetailsFormComponent } from './contact-details-form/contact-deta
   declarations: [
     AppComponent,
     NavbarComponent,
-    ContactDetailsFormComponent
+    ContactDetailsFormComponent,
+    FileUploadStepperComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +33,9 @@ import { ContactDetailsFormComponent } from './contact-details-form/contact-deta
     MatToolbarModule,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatStepperModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatStepper } from '@angular/material/stepper';
 
 @Component({
   selector: 'app-contact-details-form',
@@ -13,6 +14,9 @@ export class ContactDetailsFormComponent implements OnInit {
   receiver!:FormControl;
   message!:FormControl;
   title!:FormControl;
+
+
+  @Input() myStepper!: MatStepper;
 
   constructor(private fomrBuilder:FormBuilder) { }
 
@@ -31,7 +35,8 @@ export class ContactDetailsFormComponent implements OnInit {
   }
 
   onSubmit(){
-
+    console.log(this.contactDetailsForm.value)
+    this.myStepper.next();
   }
 
 }
