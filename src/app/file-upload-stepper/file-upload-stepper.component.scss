@@ -1,4 +1,18 @@
-:host ::ng-deep .mat-horizontal-content-container{
+:host ::ng-deep .mat-horizontal-stepper-content{
     height: calc(100vh - 240px);
 } 
 
+
+.step-2{
+    display: flex;
+    justify-content: space-between;
+    height: 300px;
+}
+
+.left-side{
+    width: 45%;
+}
+
+.rigth-side{
+    width: 45%;
+}
