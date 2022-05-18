@@ -13,10 +13,10 @@ import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
 
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { ContactDetailsFormComponent } from './contact-details-form/contact-details-form.component';
-import { FileUploadStepperComponent } from './file-upload-stepper/file-upload-stepper.component';
-import { FilesUploadComponent } from './files-upload/files-upload.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { ContactDetailsFormComponent } from './components/contact-details-form/contact-details-form.component';
+import { FileUploadStepperComponent } from './components/file-upload-stepper/file-upload-stepper.component';
+import { FilesUploadComponent } from './components/files-upload/files-upload.component';
 import { FileUploadDirective } from './directives/file-upload.directive';
 
 
