@@ -1,0 +1,42 @@
+.contact-form{
+    padding: 10px 20px;
+}
+
+mat-form-field{
+    width: 100%;
+}
+
+.form-row{
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-row mat-form-field{
+    width: 48%;
+}
+
+.commands{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+textarea{
+    height: 100px;
+}
+
+button{
+    background-color: #473FCE !important;
+    font-size: 14px;
+}
+
+@media screen and (max-width: 600px) {
+    .form-row{
+        flex-direction: column;
+    }
+    
+    .form-row mat-form-field{
+        width: 100%;
+    }
+
+  }

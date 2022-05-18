@@ -1,0 +1,26 @@
+<form class="contact-form" [formGroup]="contactDetailsForm" (ngSubmit)="onSubmit()" autocomplete="off">
+    <div class="form-row">
+      <mat-form-field  appearance="outline">
+        <mat-label>Envoye à</mat-label>
+        <input matInput formControlName="receiver">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Votre email</mat-label>
+        <input matInput  formControlName="sender">
+      </mat-form-field>
+    </div>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Titre</mat-label>
+      <input matInput  formControlName="title">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>Message</mat-label>
+        <textarea matInput  formControlName="message"></textarea>
+    </mat-form-field>
+        <div class="commands">
+          <button type="submit" color="primary" [disabled]="contactDetailsForm.invalid" mat-raised-button>Next</button>
+        </div>
+  </form>
