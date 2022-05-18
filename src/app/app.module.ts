@@ -10,11 +10,14 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatCardModule} from '@angular/material/card';
+import {MatIconModule} from '@angular/material/icon';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ContactDetailsFormComponent } from './contact-details-form/contact-details-form.component';
 import { FileUploadStepperComponent } from './file-upload-stepper/file-upload-stepper.component';
+import { FilesUploadComponent } from './files-upload/files-upload.component';
+import { FileUploadDirective } from './directives/file-upload.directive';
 
 
 
@@ -23,7 +26,9 @@ import { FileUploadStepperComponent } from './file-upload-stepper/file-upload-st
     AppComponent,
     NavbarComponent,
     ContactDetailsFormComponent,
-    FileUploadStepperComponent
+    FileUploadStepperComponent,
+    FilesUploadComponent,
+    FileUploadDirective
   ],
   imports: [
     BrowserModule,
@@ -35,7 +40,8 @@ import { FileUploadStepperComponent } from './file-upload-stepper/file-upload-st
     MatInputModule,
     MatButtonModule,
     MatStepperModule,
-    MatCardModule
+    MatCardModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

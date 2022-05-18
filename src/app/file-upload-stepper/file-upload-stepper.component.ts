@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FileUploadStepperComponent implements OnInit {
 
+  files = [];
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  uploadFiles(files:any){
+    this.files = files
   }
 
 }
