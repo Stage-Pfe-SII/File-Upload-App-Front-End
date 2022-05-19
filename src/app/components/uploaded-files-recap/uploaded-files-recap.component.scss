@@ -1,0 +1,64 @@
+.files-infos{
+    height: 50px;
+    padding: 4px;
+    text-align: center;
+    font-size: 1em;
+    color: #1E293B;
+}
+
+.files-list{
+    height: 250px;
+    overflow-y: auto;
+    border-bottom: 1px solid #1E293B;
+    display: flex;
+    flex-direction: column;
+
+
+    .file{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 4px;
+        
+        .file-name{
+            color: #1E293B;
+            font-size: 1rem;
+        }
+
+        button{
+            font-size: 1rem;
+            padding: 4px;
+            background-color: transparent;
+            cursor: pointer;
+            border: none;
+        }
+    }
+
+    .file:not(:last-child){
+        border-bottom: 0.5px solid #94A3B8;
+    }
+
+}
+
+
+
+
+
+
+.files-list::-webkit-scrollbar-track
+{
+    border-radius: 10px;
+    background-color: #F5F5F5;
+}
+
+.files-list::-webkit-scrollbar
+{
+    width: 8px;
+    background-color: #F5F5F5;
+}
+
+.files-list::-webkit-scrollbar-thumb
+{
+    border-radius: 10px;
+    background-color: #94A3B8;
+}

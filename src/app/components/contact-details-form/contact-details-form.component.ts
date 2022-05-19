@@ -24,7 +24,7 @@ export class ContactDetailsFormComponent implements OnInit {
   ngOnInit(): void {
     this.sender = new FormControl('',[Validators.required,Validators.email]);
     this.receiver = new FormControl('',[Validators.required,Validators.email]);
-    this.title = new FormControl('');
+    this.title = new FormControl('',Validators.required);
     this.message = new FormControl('');
 
     this.contactDetailsForm = this.fomrBuilder.group({

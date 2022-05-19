@@ -1,18 +1,18 @@
 <form class="contact-form" [formGroup]="contactDetailsForm" (ngSubmit)="onSubmit()" autocomplete="off">
     <div class="form-row">
       <mat-form-field  appearance="outline">
-        <mat-label>Envoye à</mat-label>
+        <mat-label>Send to</mat-label>
         <input matInput formControlName="receiver">
       </mat-form-field>
 
       <mat-form-field appearance="outline">
-        <mat-label>Votre email</mat-label>
+        <mat-label>From</mat-label>
         <input matInput  formControlName="sender">
       </mat-form-field>
     </div>
 
     <mat-form-field appearance="outline">
-      <mat-label>Titre</mat-label>
+      <mat-label>Title</mat-label>
       <input matInput  formControlName="title">
     </mat-form-field>
 

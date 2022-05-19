@@ -1,0 +1,11 @@
+<div class="files-list">
+    <div class="file" *ngFor="let file of files;let i=index">
+        <div class="file-details">
+            <p class="file-name">{{file?.name}} ({{file?.size}})</p>
+        </div>
+        <button>
+            x
+        </button>
+    </div>
+</div>
+<p class="files-infos">Your have up loaded {{files.length}} files with a totla size of {{getTotalUploadedFilesSize()}}</p>

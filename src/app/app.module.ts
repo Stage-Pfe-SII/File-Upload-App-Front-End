@@ -11,6 +11,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
+import {MatDividerModule} from '@angular/material/divider';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -20,6 +21,7 @@ import { FilesUploadComponent } from './components/files-upload/files-upload.com
 import { FileUploadDirective } from './directives/file-upload.directive';
 import { FilesListComponent } from './components/files-list/files-list.component';
 import { RecapComponent } from './components/recap/recap.component';
+import { UploadedFilesRecapComponent } from './components/uploaded-files-recap/uploaded-files-recap.component';
 
 
 
@@ -32,7 +34,8 @@ import { RecapComponent } from './components/recap/recap.component';
     FilesUploadComponent,
     FileUploadDirective,
     FilesListComponent,
-    RecapComponent
+    RecapComponent,
+    UploadedFilesRecapComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +48,8 @@ import { RecapComponent } from './components/recap/recap.component';
     MatButtonModule,
     MatStepperModule,
     MatCardModule,
-    MatIconModule
+    MatIconModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
