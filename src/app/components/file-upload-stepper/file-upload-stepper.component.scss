@@ -15,3 +15,22 @@
 .rigth-side{
     width: 45%;
 }
+
+.commands{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 30px;
+}
+
+.commands button{
+    margin-left: 10px;
+}
+
+.commands button:disabled{
+    background-color: #eee !important;
+    color: #1E293B !important;
+}
+.commands button:nth-child(2){
+    background-color: #1E293B;
+    color: white;
+}

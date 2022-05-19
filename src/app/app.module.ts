@@ -18,6 +18,8 @@ import { ContactDetailsFormComponent } from './components/contact-details-form/c
 import { FileUploadStepperComponent } from './components/file-upload-stepper/file-upload-stepper.component';
 import { FilesUploadComponent } from './components/files-upload/files-upload.component';
 import { FileUploadDirective } from './directives/file-upload.directive';
+import { FilesListComponent } from './components/files-list/files-list.component';
+import { RecapComponent } from './components/recap/recap.component';
 
 
 
@@ -28,7 +30,9 @@ import { FileUploadDirective } from './directives/file-upload.directive';
     ContactDetailsFormComponent,
     FileUploadStepperComponent,
     FilesUploadComponent,
-    FileUploadDirective
+    FileUploadDirective,
+    FilesListComponent,
+    RecapComponent
   ],
   imports: [
     BrowserModule,

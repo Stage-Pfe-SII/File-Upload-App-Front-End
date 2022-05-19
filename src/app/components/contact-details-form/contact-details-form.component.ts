@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatStepper } from '@angular/material/stepper';
 
@@ -17,6 +17,7 @@ export class ContactDetailsFormComponent implements OnInit {
 
 
   @Input() myStepper!: MatStepper;
+  @Output() formSubmit = new EventEmitter();
 
   constructor(private fomrBuilder:FormBuilder) { }
 
@@ -36,6 +37,7 @@ export class ContactDetailsFormComponent implements OnInit {
 
   onSubmit(){
     console.log(this.contactDetailsForm.value)
+    this.formSubmit.emit(this.contactDetailsForm.value);
     this.myStepper.next();
   }
 

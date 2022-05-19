@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-file-upload-stepper',
@@ -8,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class FileUploadStepperComponent implements OnInit {
 
   files = [];
+  contactDetails = {};
 
   constructor() { }
 
@@ -17,5 +19,15 @@ export class FileUploadStepperComponent implements OnInit {
   uploadFiles(files:any){
     this.files = files
   }
+  
+  deleteFile(index:number){
+    this.files.splice(index, 1);
+    console.log(this.files);
+  }
 
+  onContactDetailsFormSubmit($event:any){
+    console.log('stepper component')
+    this.contactDetails = $event;
+    console.log(this.contactDetails);
+  }
 }

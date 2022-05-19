@@ -1,0 +1,14 @@
+<div class="files-list">
+    <p class="no-files" *ngIf="files.length == 0">No files to upload</p>
+    <ng-container *ngIf="files.length != 0">
+        <div class="file" *ngFor="let file of files;let i=index">
+            <div class="file-details">
+                <p class="file-name">{{file?.name}}</p>
+                <p class="file-size">{{file?.size}} Mo</p>
+            </div>
+            <button mat-button (click)="deleteFile(i)">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </div>
+    </ng-container>
+</div>
