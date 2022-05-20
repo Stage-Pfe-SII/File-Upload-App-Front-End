@@ -4,7 +4,7 @@
         <div class="file" *ngFor="let file of files;let i=index">
             <div class="file-details">
                 <p class="file-name">{{file?.name}}</p>
-                <p class="file-size">{{file?.size}} Mo</p>
+                <p class="file-size">{{file?.size | formatFileSize:false}}</p>
             </div>
             <button mat-button (click)="deleteFile(i)">
                 <mat-icon>delete</mat-icon>

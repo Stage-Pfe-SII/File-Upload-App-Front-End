@@ -2,25 +2,40 @@
     <div class="form-row">
       <mat-form-field  appearance="outline">
         <mat-label>Send to</mat-label>
-        <input matInput formControlName="receiver">
+        <input matInput [errorStateMatcher]="matcher" formControlName="receiver">
+        <mat-error *ngIf="contactDetailsForm.get('receiver')?.hasError('email') && contactDetailsForm.get('receiver')?.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="contactDetailsForm.get('receiver')?.hasError('required')">
+          Reciever email is <strong>required</strong>
+        </mat-error>
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label>From</mat-label>
-        <input matInput  formControlName="sender">
+        <input matInput [errorStateMatcher]="matcher" formControlName="sender">
+        <mat-error *ngIf="contactDetailsForm.get('sender')?.hasError('email') && !contactDetailsForm.get('sender')?.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="contactDetailsForm.get('sender')?.hasError('required')">
+          Sender email is <strong>required</strong>
+        </mat-error>
       </mat-form-field>
     </div>
 
     <mat-form-field appearance="outline">
       <mat-label>Title</mat-label>
-      <input matInput  formControlName="title">
+      <input matInput [errorStateMatcher]="matcher" formControlName="title">
+      <mat-error *ngIf="contactDetailsForm.get('title')?.hasError('required')">
+        Title is <strong>required</strong>
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
         <mat-label>Message</mat-label>
-        <textarea matInput  formControlName="message"></textarea>
+        <textarea matInput [errorStateMatcher]="matcher" formControlName="message"></textarea>
     </mat-form-field>
         <div class="commands">
-          <button type="submit" color="primary" [disabled]="contactDetailsForm.invalid" mat-raised-button>Next</button>
+          <button type="submit" color="primary"  mat-raised-button>Next</button>
         </div>
   </form>

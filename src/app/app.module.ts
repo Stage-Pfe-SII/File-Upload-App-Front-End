@@ -4,14 +4,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 
 
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
-import {MatButtonModule} from '@angular/material/button';
-import {MatStepperModule} from '@angular/material/stepper';
-import {MatCardModule} from '@angular/material/card';
-import {MatIconModule} from '@angular/material/icon';
-import {MatDividerModule} from '@angular/material/divider';
+
+
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -22,6 +16,8 @@ import { FileUploadDirective } from './directives/file-upload.directive';
 import { FilesListComponent } from './components/files-list/files-list.component';
 import { RecapComponent } from './components/recap/recap.component';
 import { UploadedFilesRecapComponent } from './components/uploaded-files-recap/uploaded-files-recap.component';
+import { FormatFileSizePipe } from './pipes/format-file-size.pipe';
+import { MaterialModule } from './material.module';
 
 
 
@@ -35,21 +31,15 @@ import { UploadedFilesRecapComponent } from './components/uploaded-files-recap/u
     FileUploadDirective,
     FilesListComponent,
     RecapComponent,
-    UploadedFilesRecapComponent
+    UploadedFilesRecapComponent,
+    FormatFileSizePipe
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
 
-    MatToolbarModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    MatStepperModule,
-    MatCardModule,
-    MatIconModule,
-    MatDividerModule
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

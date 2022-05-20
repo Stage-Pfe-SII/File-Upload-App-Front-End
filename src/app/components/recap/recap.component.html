@@ -1,14 +1,32 @@
 <mat-card>
-    <div class="mail-header">
-        <p><span>From:</span> {{contactDetails?.sender}}</p>
-        <p><span>To:</span> {{contactDetails?.receiver}}</p>
-    </div>
-    <hr>
-    <div class="mail-title">
-        <p><span>Title:</span> {{contactDetails?.title}}</p>
-    </div>
-    <mat-divider></mat-divider>
-    <div class="mail-message">
-        <p>{{contactDetails?.message}}</p>
-    </div>
+
+        <div class="recap-field">
+            <mat-chip-list>
+                <mat-chip>Reciever</mat-chip>
+            </mat-chip-list>
+            <p>{{contactDetails?.sender}}</p>
+        </div>
+
+        <div class="recap-field">
+            <mat-chip-list>
+                <mat-chip>Sender</mat-chip>
+            </mat-chip-list>     
+            <p>{{contactDetails?.receiver}}</p>
+        </div>
+
+        <div class="recap-field">
+            <mat-chip-list>
+                <mat-chip>Title</mat-chip>
+            </mat-chip-list>
+            <p>{{contactDetails?.title}}</p>
+        </div>
+
+        <div class="recap-field ">
+            <mat-chip-list>
+                <mat-chip>Message</mat-chip>
+            </mat-chip-list>
+        <p class="message">{{contactDetails?.message}}</p>
+        </div>
+
+
 </mat-card>

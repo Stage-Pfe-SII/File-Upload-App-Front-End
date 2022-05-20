@@ -1,15 +1,14 @@
 
-<mat-card>
-    <mat-horizontal-stepper #stepper>
+    <mat-horizontal-stepper #stepper >
 
-        <mat-step label="Concact Details" [completed]="true">
-            <app-contact-details-form [myStepper]="stepper" (formSubmit)="onContactDetailsFormSubmit($event)"></app-contact-details-form>
+        <mat-step label="Concact Details" [completed]="contactForm?.contactDetailsForm?.valid" [hasError]="contactForm?.contactDetailsForm?.invalid">
+            <app-contact-details-form #contactForm [myStepper]="stepper" (formSubmit)="onContactDetailsFormSubmit($event)"></app-contact-details-form>
         </mat-step>
 
-        <mat-step label="File Upload" >
+        <mat-step label="File Upload" [completed]="files.length != 0">
             <div class="step-2">
                 <div class="left-side">
-                    <app-files-upload (getFiles)="uploadFiles($event)"></app-files-upload>
+                    <app-files-upload  (getFiles)="uploadFiles($event)"></app-files-upload>
                 </div>
                 <div class="rigth-side">
                     <app-files-list [files]="files" (delete)="deleteFile($event)"></app-files-list>
@@ -27,7 +26,7 @@
                     <app-recap [contactDetails]="contactDetails"></app-recap>
                 </div>
                 <div class="rigth-side">
-                    <app-uploaded-files-recap [files]="files"></app-uploaded-files-recap>
+                    <app-uploaded-files-recap [files]="files" (delete)="deleteFile($event)"></app-uploaded-files-recap>
                 </div>
             </div>
             <div class="commands">
@@ -35,5 +34,5 @@
                 <button mat-button>Confirm & Upload</button>
             </div>
         </mat-step>
+        
     </mat-horizontal-stepper>
-</mat-card>

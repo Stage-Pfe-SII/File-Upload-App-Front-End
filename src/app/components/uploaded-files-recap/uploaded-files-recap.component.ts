@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-uploaded-files-recap',
@@ -8,6 +8,8 @@ import { Component, Input, OnInit } from '@angular/core';
 export class UploadedFilesRecapComponent implements OnInit {
 
   @Input() files :any[] = [];
+  @Output() delete = new EventEmitter();
+
   constructor() { }
 
   ngOnInit(): void {
@@ -19,4 +21,7 @@ export class UploadedFilesRecapComponent implements OnInit {
     return sum;
   }
 
+  deleteFile(index:number){
+    this.delete.emit(index);
+  }
 }

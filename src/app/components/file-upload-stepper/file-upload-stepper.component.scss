@@ -1,6 +1,11 @@
 :host ::ng-deep .mat-horizontal-stepper-content{
-    height: calc(100vh - 240px);
+    margin-top: 10px;
+    height: calc(100vh - 230px);
 } 
+
+:host ::ng-deep mat-horizontal-stepper{
+    background: transparent;
+}
 
 .step-2,
 .step-3{
@@ -9,11 +14,19 @@
     height: 300px;
 }
 
-.left-side{
+.step-3 .left-side{
+    width: 38%;
+}
+
+.step-3 .rigth-side{
+    width: 58%;
+}
+
+.step-2 .left-side{
     width: 45%;
 }
 
-.rigth-side{
+.step-2 .rigth-side{
     width: 45%;
 }
 
@@ -29,7 +42,7 @@
 
 .commands button:disabled{
     background-color: #eee !important;
-    color: #1E293B !important;
+    // color: #1E293B !important;
 }
 
 .commands button:nth-child(2){

@@ -1,44 +1,58 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+import { ErrorStateMatcher } from '@angular/material/core';
 import { MatStepper } from '@angular/material/stepper';
+
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    const isSubmitted = form && form.submitted;
+    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+  }
+}
 
 @Component({
   selector: 'app-contact-details-form',
   templateUrl: './contact-details-form.component.html',
-  styleUrls: ['./contact-details-form.component.scss']
+  styleUrls: ['./contact-details-form.component.scss'],
+  exportAs: 'contactForm'
 })
 export class ContactDetailsFormComponent implements OnInit {
 
   contactDetailsForm!:FormGroup;
-  sender!:FormControl;
-  receiver!:FormControl;
-  message!:FormControl;
-  title!:FormControl;
 
 
   @Input() myStepper!: MatStepper;
   @Output() formSubmit = new EventEmitter();
+  @Output() state = new EventEmitter();
 
-  constructor(private fomrBuilder:FormBuilder) { }
+
+  matcher = new ErrorStateMatcher();
+
+  constructor(private fomrBuilder:FormBuilder) {
+    this.contactDetailsForm = this.fomrBuilder.group({
+      sender: ['',[Validators.required,Validators.email]],
+      receiver: ['',[Validators.required,Validators.email]],
+      title: ['',[Validators.required]],
+      message: ''
+    })
+   }
 
   ngOnInit(): void {
-    this.sender = new FormControl('',[Validators.required,Validators.email]);
-    this.receiver = new FormControl('',[Validators.required,Validators.email]);
-    this.title = new FormControl('',Validators.required);
-    this.message = new FormControl('');
-
-    this.contactDetailsForm = this.fomrBuilder.group({
-      sender: this.sender,
-      receiver: this.receiver,
-      title: this.title,
-      message: this.message
-    })
+    // this.contactDetailsForm.statusChanges.pipe(
+    //   distinctUntilChanged(),
+    //   tap(console.log)
+    //  ).subscribe()
   }
 
   onSubmit(){
     console.log(this.contactDetailsForm.value)
-    this.formSubmit.emit(this.contactDetailsForm.value);
-    this.myStepper.next();
+    if(this.contactDetailsForm.invalid){
+      this.contactDetailsForm.markAllAsTouched();
+      
+    }else{
+      this.formSubmit.emit(this.contactDetailsForm.value);
+      this.myStepper.next();
+    }
   }
 
 }
