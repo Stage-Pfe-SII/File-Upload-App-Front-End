@@ -1,11 +1,15 @@
 <div class="files-list">
-    <div class="file" *ngFor="let file of files;let i=index">
-        <div class="file-details">
-            <p class="file-name">{{file?.name}} ({{file?.size | formatFileSize:false}})</p>
+    <div class="file mat-elevation-z2" *ngFor="let file of files;let i=index">
+        <div >
+            <mat-icon class="size">folder</mat-icon>
         </div>
-        <button (click)="deleteFile(i)">
-            x
-        </button>
+        <div class="file-details">
+            <p class="file-name">{{file?.name}}</p>
+            <p class="file-size">{{file?.size | formatFileSize: false}}</p>
+        </div>
+        <button mat-icon-button class="btn" (click)="deleteFile(i)">
+            <mat-icon color="warn">close</mat-icon>
+          </button>
     </div>
 </div>
-<p class="files-infos">Your have up loaded {{files.length}} files with a totla size of {{getTotalUploadedFilesSize() | formatFileSize:false}}</p>
+<!-- <p class="files-infos">Your have up loaded {{files.length}} files with a totla size of {{getTotalUploadedFilesSize() | formatFileSize:false}}</p> -->

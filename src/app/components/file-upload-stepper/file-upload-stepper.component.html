@@ -1,5 +1,5 @@
 
-    <mat-horizontal-stepper #stepper >
+    <mat-horizontal-stepper linear #stepper >
 
         <mat-step label="Concact Details" [completed]="contactForm?.contactDetailsForm?.valid" [hasError]="contactForm?.contactDetailsForm?.invalid">
             <app-contact-details-form #contactForm [myStepper]="stepper" (formSubmit)="onContactDetailsFormSubmit($event)"></app-contact-details-form>
@@ -16,7 +16,7 @@
             </div>
             <div class="commands">
                 <button mat-button matStepperPrevious>back</button>
-                <button mat-button matStepperNext [disabled]="files.length == 0">Next</button>
+                <button mat-button mat-raised-button color="primary" [disabled]="files.length == 0" matStepperNext>Next</button>
             </div>
         </mat-step>
         
@@ -30,8 +30,8 @@
                 </div>
             </div>
             <div class="commands">
-                <button mat-button matStepperPrevious>Reset</button>
-                <button mat-button>Confirm & Upload</button>
+                <button mat-button matStepperPrevious (click)="resetStepper()">Reset</button>
+                <button mat-raised-button color="primary" (click)="submitFiles()">Confirm & Upload</button>
             </div>
         </mat-step>
         

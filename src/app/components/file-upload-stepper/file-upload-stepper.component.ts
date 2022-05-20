@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { MatStepper } from '@angular/material/stepper';
 
 @Component({
   selector: 'app-file-upload-stepper',
@@ -11,6 +12,9 @@ export class FileUploadStepperComponent implements OnInit {
   files = [];
   contactDetails = {};
   filesForm!:FormControl;
+  
+  @ViewChild('stepper') private stepper!: MatStepper;
+  @ViewChild('contactForm') private contactForm!: any;
   
   constructor() { }
 
@@ -30,5 +34,17 @@ export class FileUploadStepperComponent implements OnInit {
     console.log('stepper component')
     this.contactDetails = $event;
     console.log(this.contactDetails);
+  }
+
+  resetStepper(){
+    this.stepper.reset();
+    this.files = [];
+    this.contactForm?.contactDetailsForm.reset()
+  }
+
+  submitFiles(){
+  
+    console.log(this.contactDetails)
+    console.log(this.files)
   }
 }

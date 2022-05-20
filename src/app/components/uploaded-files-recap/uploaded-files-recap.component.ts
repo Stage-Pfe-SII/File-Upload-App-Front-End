@@ -6,7 +6,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./uploaded-files-recap.component.scss']
 })
 export class UploadedFilesRecapComponent implements OnInit {
-
+  list =  Array.from({length: 3}, (_, i) => `Nav Item ${i + 1}`);
   @Input() files :any[] = [];
   @Output() delete = new EventEmitter();
 

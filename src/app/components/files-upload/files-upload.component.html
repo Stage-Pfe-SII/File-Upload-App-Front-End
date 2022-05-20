@@ -1,7 +1,8 @@
 <div class="container">
     <div class="dropzone" appFileUpload (fileDroped)="onFileDroped($event)">
         <input type="file" id="fileDropRef" multiple (change)="fileBrowseHandler($any($event).target.files)">
-        <img src="../../assets/file-upload.jfif" alt="test">
+        
+        <mat-icon>upload</mat-icon>
         <h3>darg and drop your files here</h3>
         <h3>or</h3>
         <label for="fileDropRef">Browse for file</label>

@@ -1,32 +1,33 @@
 <mat-card>
-
         <div class="recap-field">
+            <mat-icon>send</mat-icon>
             <mat-chip-list>
-                <mat-chip>Reciever</mat-chip>
+                <mat-chip>
+                    {{contactDetails?.sender}} 
+                </mat-chip>
             </mat-chip-list>
-            <p>{{contactDetails?.sender}}</p>
-        </div>
-
-        <div class="recap-field">
-            <mat-chip-list>
-                <mat-chip>Sender</mat-chip>
-            </mat-chip-list>     
-            <p>{{contactDetails?.receiver}}</p>
         </div>
 
         <div class="recap-field">
+            <mat-icon>inbox</mat-icon>
             <mat-chip-list>
-                <mat-chip>Title</mat-chip>
+                <mat-chip>
+                    {{contactDetails?.receiver}}
+                </mat-chip>
             </mat-chip-list>
-            <p>{{contactDetails?.title}}</p>
         </div>
 
-        <div class="recap-field ">
-            <mat-chip-list>
-                <mat-chip>Message</mat-chip>
-            </mat-chip-list>
-        <p class="message">{{contactDetails?.message}}</p>
+        <div class="recap-field">
+            <mat-icon>title</mat-icon>
+            <span>{{contactDetails?.title}}</span>
         </div>
+
+        <div class="recap-field">
+            <mat-icon>notes</mat-icon>
+            <span>{{contactDetails?.message}}</span>
+        </div>
+
+
 
 
 </mat-card>
