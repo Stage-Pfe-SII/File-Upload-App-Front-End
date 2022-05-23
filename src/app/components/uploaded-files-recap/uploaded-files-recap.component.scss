@@ -19,7 +19,17 @@
     justify-content: flex-start;
     align-items: flex-start;
 
-    
+    .no-files{
+        color: #1E293B;
+        font-size: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: calc(100% - 12px);
+        width: 100%;
+        border: 0.1px solid #979797;
+        overflow: hidden;
+    }
     
     .file {
         background-color: #fff;

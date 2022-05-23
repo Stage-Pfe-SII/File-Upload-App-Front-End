@@ -11,7 +11,7 @@
                     <app-files-upload  (getFiles)="uploadFiles($event)"></app-files-upload>
                 </div>
                 <div class="rigth-side">
-                    <app-files-list [files]="files" (delete)="deleteFile($event)"></app-files-list>
+                    <app-uploaded-files-recap [files]="files" (delete)="deleteFile($event)"></app-uploaded-files-recap>
                 </div>
             </div>
             <div class="commands">

@@ -45,7 +45,6 @@ export class ContactDetailsFormComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.contactDetailsForm.value)
     if(this.contactDetailsForm.invalid){
       this.contactDetailsForm.markAllAsTouched();
       

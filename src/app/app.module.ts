@@ -2,10 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
-
-
-
-
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -17,8 +14,8 @@ import { FilesListComponent } from './components/files-list/files-list.component
 import { RecapComponent } from './components/recap/recap.component';
 import { UploadedFilesRecapComponent } from './components/uploaded-files-recap/uploaded-files-recap.component';
 import { FormatFileSizePipe } from './pipes/format-file-size.pipe';
-import { MaterialModule } from './material.module';
 
+import { MaterialModule } from './material.module';
 
 
 @NgModule({
@@ -38,6 +35,7 @@ import { MaterialModule } from './material.module';
     BrowserModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    HttpClientModule,
 
     MaterialModule
   ],

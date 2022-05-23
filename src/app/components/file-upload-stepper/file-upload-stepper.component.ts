@@ -9,8 +9,8 @@ import { MatStepper } from '@angular/material/stepper';
 })
 export class FileUploadStepperComponent implements OnInit {
 
-  files = [];
-  contactDetails = {};
+  files = []; // les fichiers
+  contactDetails:any; //objet 
   filesForm!:FormControl;
   
   @ViewChild('stepper') private stepper!: MatStepper;
@@ -27,13 +27,10 @@ export class FileUploadStepperComponent implements OnInit {
   
   deleteFile(index:number){
     this.files.splice(index, 1);
-    console.log(this.files);
   }
 
   onContactDetailsFormSubmit($event:any){
-    console.log('stepper component')
     this.contactDetails = $event;
-    console.log(this.contactDetails);
   }
 
   resetStepper(){
@@ -42,9 +39,9 @@ export class FileUploadStepperComponent implements OnInit {
     this.contactForm?.contactDetailsForm.reset()
   }
 
-  submitFiles(){
-  
+  submitFiles(){  
     console.log(this.contactDetails)
     console.log(this.files)
   }
+
 }
