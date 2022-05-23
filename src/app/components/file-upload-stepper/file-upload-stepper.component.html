@@ -1,38 +1,61 @@
+<mat-horizontal-stepper linear #stepper>
+  <mat-step
+    label="Concact Details"
+    [completed]="contactForm?.contactDetailsForm?.valid"
+    [hasError]="contactForm?.contactDetailsForm?.invalid"
+  >
+    <app-contact-details-form
+      #contactForm
+      [myStepper]="stepper"
+      (formSubmit)="onContactDetailsFormSubmit($event)"
+    ></app-contact-details-form>
+  </mat-step>
 
-    <mat-horizontal-stepper linear #stepper >
+  <mat-step label="File Upload" [completed]="files.length != 0">
+    <div class="step-2">
+      <div class="left-side">
+        <app-files-upload (getFiles)="uploadFiles($event)"></app-files-upload>
+      </div>
+      <div class="rigth-side">
+        <app-uploaded-files-recap
+          [files]="files"
+          (delete)="deleteFile($event)"
+        ></app-uploaded-files-recap>
+      </div>
+    </div>
+    <div class="commands">
+      <button mat-button matStepperPrevious>back</button>
+      <button
+        mat-button
+        mat-raised-button
+        color="primary"
+        [disabled]="files.length == 0"
+        matStepperNext
+      >
+        Next
+      </button>
+    </div>
+  </mat-step>
 
-        <mat-step label="Concact Details" [completed]="contactForm?.contactDetailsForm?.valid" [hasError]="contactForm?.contactDetailsForm?.invalid">
-            <app-contact-details-form #contactForm [myStepper]="stepper" (formSubmit)="onContactDetailsFormSubmit($event)"></app-contact-details-form>
-        </mat-step>
-
-        <mat-step label="File Upload" [completed]="files.length != 0">
-            <div class="step-2">
-                <div class="left-side">
-                    <app-files-upload  (getFiles)="uploadFiles($event)"></app-files-upload>
-                </div>
-                <div class="rigth-side">
-                    <app-uploaded-files-recap [files]="files" (delete)="deleteFile($event)"></app-uploaded-files-recap>
-                </div>
-            </div>
-            <div class="commands">
-                <button mat-button matStepperPrevious>back</button>
-                <button mat-button mat-raised-button color="primary" [disabled]="files.length == 0" matStepperNext>Next</button>
-            </div>
-        </mat-step>
-        
-        <mat-step  label="Summary">
-            <div class="step-3">
-                <div class="left-side">
-                    <app-recap [contactDetails]="contactDetails"></app-recap>
-                </div>
-                <div class="rigth-side">
-                    <app-uploaded-files-recap [files]="files" (delete)="deleteFile($event)"></app-uploaded-files-recap>
-                </div>
-            </div>
-            <div class="commands">
-                <button mat-button matStepperPrevious (click)="resetStepper()">Reset</button>
-                <button mat-raised-button color="primary" (click)="submitFiles()">Confirm & Upload</button>
-            </div>
-        </mat-step>
-        
-    </mat-horizontal-stepper>
+  <mat-step label="Summary">
+    <div class="step-3">
+      <div class="left-side">
+        <app-recap [contactDetails]="contactDetails"></app-recap>
+      </div>
+      <div class="rigth-side">
+        <app-uploaded-files-recap
+          [files]="files"
+          (delete)="deleteFile($event)"
+        ></app-uploaded-files-recap>
+      </div>
+    </div>
+    <div class="commands">
+      <button mat-button matStepperPrevious (click)="resetStepper()">
+        Reset
+      </button>
+      <button mat-raised-button color="primary" (click)="submitFiles()">
+        Confirm & Upload
+      </button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>

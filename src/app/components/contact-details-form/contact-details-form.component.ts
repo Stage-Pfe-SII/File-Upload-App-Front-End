@@ -33,7 +33,7 @@ export class ContactDetailsFormComponent implements OnInit {
       sender: ['',[Validators.required,Validators.email]],
       receiver: ['',[Validators.required,Validators.email]],
       title: ['',[Validators.required]],
-      message: ''
+      message: ['']
     })
    }
 
