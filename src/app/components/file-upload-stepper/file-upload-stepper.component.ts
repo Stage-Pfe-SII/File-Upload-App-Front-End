@@ -1,6 +1,8 @@
+import { HttpEventType } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatStepper } from '@angular/material/stepper';
+import { last, map, tap } from 'rxjs';
 import { Transfert } from 'src/app/models/Transfert.model';
 import { UploadServiceService } from 'src/app/services/upload-service.service';
 
@@ -14,6 +16,8 @@ export class FileUploadStepperComponent implements OnInit {
   files:File[] = []; // les fichiers
   contactDetails!:Transfert; //objet 
   filesForm!:FormControl;
+  stateProgress = 0
+  showProgressBar = false
   
   @ViewChild('stepper') private stepper!: MatStepper;
   @ViewChild('contactForm') private contactForm!: any;
@@ -42,10 +46,13 @@ export class FileUploadStepperComponent implements OnInit {
   }
 
   submitFiles(){  
+    this.showProgressBar = true
     this.uploadService.upload(this.contactDetails, this.files)
     .subscribe(
-      res=>{
-        console.log(res)
+      event=>{
+        if(event.type==HttpEventType.UploadProgress){
+          this.stateProgress = Math.round( 100*event.loaded/event.total)
+        }
       }
     )
   }
