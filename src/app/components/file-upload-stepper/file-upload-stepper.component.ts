@@ -2,6 +2,7 @@ import { HttpEventType } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatStepper } from '@angular/material/stepper';
+import { ToastrService } from 'ngx-toastr';
 import { last, map, tap } from 'rxjs';
 import { Transfert } from 'src/app/models/Transfert.model';
 import { UploadServiceService } from 'src/app/services/upload-service.service';
@@ -22,7 +23,7 @@ export class FileUploadStepperComponent implements OnInit {
   @ViewChild('stepper') private stepper!: MatStepper;
   @ViewChild('contactForm') private contactForm!: any;
   
-  constructor(private uploadService: UploadServiceService) { }
+  constructor(private uploadService: UploadServiceService, private toastrService: ToastrService) { }
 
   ngOnInit(): void {
   }
@@ -52,6 +53,17 @@ export class FileUploadStepperComponent implements OnInit {
       event=>{
         if(event.type==HttpEventType.UploadProgress){
           this.stateProgress = Math.round( 100*event.loaded/event.total)
+          if(this.stateProgress==100){
+            this.toastrService.success(
+              "les fichiers sont envoyés avec Succés",
+              "Etat d'envoie",
+              {
+                timeOut: 3000,
+                closeButton: true,
+                extendedTimeOut: 1000
+              }
+              )
+          }
         }
       }
     )

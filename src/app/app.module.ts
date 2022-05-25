@@ -16,6 +16,7 @@ import { UploadedFilesRecapComponent } from './components/uploaded-files-recap/u
 import { FormatFileSizePipe } from './pipes/format-file-size.pipe';
 
 import { MaterialModule } from './material.module';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -29,15 +30,15 @@ import { MaterialModule } from './material.module';
     FilesListComponent,
     RecapComponent,
     UploadedFilesRecapComponent,
-    FormatFileSizePipe
+    FormatFileSizePipe,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
     HttpClientModule,
-
-    MaterialModule
+    MaterialModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
