@@ -13,7 +13,7 @@ export class UploadServiceService {
 
   upload(transfert:Transfert, files: File[]): Observable<any> {
     const formData = new FormData();
-    formData.append('transfertDto', JSON.stringify(transfert));
+    formData.append('transfertJSON', JSON.stringify(transfert));
     files.forEach(file=>{
       formData.append('files', file)
     })
