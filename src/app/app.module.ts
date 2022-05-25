@@ -17,6 +17,7 @@ import { FormatFileSizePipe } from './pipes/format-file-size.pipe';
 
 import { MaterialModule } from './material.module';
 import { ToastrModule } from 'ngx-toastr';
+import { MessageSuccessDialogComponent } from './components/dialogs/message-success-dialog/message-success-dialog.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { ToastrModule } from 'ngx-toastr';
     RecapComponent,
     UploadedFilesRecapComponent,
     FormatFileSizePipe,
+    MessageSuccessDialogComponent,
   ],
   imports: [
     BrowserModule,
