@@ -47,6 +47,7 @@ export class FileUploadStepperComponent implements OnInit {
   }
 
   submitFiles(){  
+    this.stateProgress = 0;
     this.showProgressBar = true
     this.uploadService.upload(this.contactDetails, this.files)
     .subscribe(
@@ -54,7 +55,6 @@ export class FileUploadStepperComponent implements OnInit {
         if(event.type==HttpEventType.UploadProgress){
           this.stateProgress = Math.round( 100*event.loaded/event.total)
           if(this.stateProgress==100){
-            console.log("display dialog")
             this.dialog.open(MessageSuccessDialogComponent)
           }
         }
