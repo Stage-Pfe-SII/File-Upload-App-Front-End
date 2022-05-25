@@ -2,10 +2,10 @@ import { HttpEventType } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatStepper } from '@angular/material/stepper';
-import { ToastrService } from 'ngx-toastr';
-import { last, map, tap } from 'rxjs';
 import { Transfert } from 'src/app/models/Transfert.model';
 import { UploadServiceService } from 'src/app/services/upload-service.service';
+import { MessageSuccessDialogComponent } from '../dialogs/message-success-dialog/message-success-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-file-upload-stepper',
@@ -23,7 +23,7 @@ export class FileUploadStepperComponent implements OnInit {
   @ViewChild('stepper') private stepper!: MatStepper;
   @ViewChild('contactForm') private contactForm!: any;
   
-  constructor(private uploadService: UploadServiceService, private toastrService: ToastrService) { }
+  constructor(private uploadService: UploadServiceService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -47,6 +47,7 @@ export class FileUploadStepperComponent implements OnInit {
   }
 
   submitFiles(){  
+    this.stateProgress = 0;
     this.showProgressBar = true
     this.uploadService.upload(this.contactDetails, this.files)
     .subscribe(
@@ -54,15 +55,7 @@ export class FileUploadStepperComponent implements OnInit {
         if(event.type==HttpEventType.UploadProgress){
           this.stateProgress = Math.round( 100*event.loaded/event.total)
           if(this.stateProgress==100){
-            this.toastrService.success(
-              "les fichiers sont envoyés avec Succés",
-              "Etat d'envoie",
-              {
-                timeOut: 3000,
-                closeButton: true,
-                extendedTimeOut: 1000
-              }
-              )
+            this.dialog.open(MessageSuccessDialogComponent)
           }
         }
       }

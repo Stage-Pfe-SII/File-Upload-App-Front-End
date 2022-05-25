@@ -24,3 +24,7 @@ body {
 @import '~bootstrap/scss/mixins';
 @import '~ngx-toastr/toastr-bs4-alert';
 @import '~ngx-toastr/toastr-bs4-alert';
+
+mat-dialog-container {
+    background-color: #388E3C !important;
+ }
