@@ -13,9 +13,9 @@ export class UploadServiceService {
 
   upload(transfert:Transfert, files: File[]): Observable<any> {
     const formData = new FormData();
-    formData.append('transfert', JSON.stringify(transfert));
+    formData.append('transfertDto', JSON.stringify(transfert));
     files.forEach(file=>{
-      formData.append('multipartFiles', file)
+      formData.append('files', file)
     })
     const req = new HttpRequest('POST', `${this.baseUrl}/upload`, formData, {
       reportProgress: true,
