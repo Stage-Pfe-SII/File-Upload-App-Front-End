@@ -18,6 +18,7 @@ import { FormatFileSizePipe } from './pipes/format-file-size.pipe';
 import { MaterialModule } from './material.module';
 import { ToastrModule } from 'ngx-toastr';
 import { MessageSuccessDialogComponent } from './components/dialogs/message-success-dialog/message-success-dialog.component';
+import { MaxSizeReachedComponent } from './components/dialogs/max-size-reached/max-size-reached.component';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { MessageSuccessDialogComponent } from './components/dialogs/message-succ
     UploadedFilesRecapComponent,
     FormatFileSizePipe,
     MessageSuccessDialogComponent,
+    MaxSizeReachedComponent,
   ],
   imports: [
     BrowserModule,

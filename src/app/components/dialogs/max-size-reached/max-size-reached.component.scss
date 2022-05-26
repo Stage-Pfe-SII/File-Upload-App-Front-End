@@ -1,0 +1,14 @@
+::ng-deep  mat-dialog-container {
+    background-color: #fff !important;
+    color: #eee;
+    border: 1px solid red;
+ }
+
+ .mat-dialog-actions{
+     display: flex;
+     justify-content: flex-end;
+ }
+ 
+.dialog-button{
+    background-color: red;
+}

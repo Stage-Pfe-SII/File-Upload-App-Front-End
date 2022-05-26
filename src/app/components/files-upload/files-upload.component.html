@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="dropzone" appFileUpload (fileDroped)="onFileDroped($event)">
+    <div class="dropzone" appFileUpload [totalUploadFilesSize]="totalFilesSize" (fileDroped)="onFileDroped($event)">
         <input type="file" id="fileDropRef" multiple (change)="fileBrowseHandler($any($event).target.files)">
         
         <mat-icon>upload</mat-icon>
