@@ -52,12 +52,7 @@ export class FileUploadStepperComponent implements OnInit {
   }
   verificationOfUnallowedType(){
     if(this.files.length==0) this.allowedType=true
-    //f.type=='application/x-msdownload'
-    let sum = this.files.map(f=>this.unallowedTypes.indexOf(f.type)!=-1?1:0).reduce(
-      //@ts-ignore
-      (previousValue, currentValue) => previousValue==1?currentValue+=1:currentValue+=0, 0
-    )
-    this.allowedType = sum==0
+    this.allowedType = this.files.filter(f=>this.unallowedTypes.indexOf(f.type)!=-1).length==0
   }
 
 
