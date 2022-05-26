@@ -16,7 +16,7 @@ export class MessageSuccessDialogComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) private data : DialogData) {
       setTimeout(()=>{
         this.onClose()
-      }, 1500)
+      }, 3000)
      }
 
   ngOnInit(): void {

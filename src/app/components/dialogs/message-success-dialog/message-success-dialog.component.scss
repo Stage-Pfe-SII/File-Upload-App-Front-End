@@ -1,8 +1,14 @@
-.dialog-body {
-    background-color: #388E3C !important;
-    color: white;
+::ng-deep  mat-dialog-container {
+    background-color: #fff !important;
+    color: #eee;
+    border: 1px solid #388E3C;
  }
 
+ .mat-dialog-actions{
+     display: flex;
+     justify-content: flex-end;
+ }
+ 
 .dialog-button{
     background-color: #8BC34A;
 }
