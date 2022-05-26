@@ -32,7 +32,7 @@ export class ContactDetailsFormComponent implements OnInit {
   constructor(private fomrBuilder:FormBuilder) {
     this.contactDetailsForm = this.fomrBuilder.group({
       sender: ['',[Validators.required,Validators.email, Validators.pattern(this.regexMail)]],
-      receiver: ['',[Validators.required,Validators.email]],
+      receiver: ['',[Validators.required,Validators.email, Validators.pattern(this.regexMail)]],
       title: ['',[Validators.required]],
       message: ['']
     })
@@ -40,10 +40,6 @@ export class ContactDetailsFormComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    // this.contactDetailsForm.statusChanges.pipe(
-    //   distinctUntilChanged(),
-    //   tap(console.log)
-    //  ).subscribe()
   }
 
   onSubmit(){
@@ -54,10 +50,6 @@ export class ContactDetailsFormComponent implements OnInit {
       this.formSubmit.emit(this.contactDetailsForm.value);
       this.myStepper.next();
     }
-  }
-
-  onChange(){
-    console.log(this.contactDetailsForm.get('sender')?.hasError('pattern'))
   }
 
 }
