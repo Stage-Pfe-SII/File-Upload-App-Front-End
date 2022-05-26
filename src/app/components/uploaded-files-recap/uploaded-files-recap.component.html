@@ -1,4 +1,5 @@
 <mat-error *ngIf="!allowedSize">Vous avez dépasser la taille maximum <strong>2Go</strong></mat-error>
+<mat-error *ngIf="!allowedType">Le type <strong>exe</strong> est interdit</mat-error>
 <div class="files-list">
     <p class="no-files" *ngIf="files.length == 0">No files to upload</p>
     <ng-container *ngIf="files.length != 0">

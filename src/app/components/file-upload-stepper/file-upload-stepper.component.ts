@@ -16,11 +16,13 @@ export class FileUploadStepperComponent implements OnInit {
 
   files:File[] = []; // les fichiers
   contactDetails!:Transfert; //objet 
-  allowedSize = true
   filesForm!:FormControl;
   stateProgress = 0
   showProgressBar = false
+  allowedSize = true
   maxSize = 2//Go
+  allowedType = true
+  unallowedTypes = ['application/x-msdownload']
   
   @ViewChild('stepper') private stepper!: MatStepper;
   @ViewChild('contactForm') private contactForm!: any;
@@ -28,22 +30,34 @@ export class FileUploadStepperComponent implements OnInit {
   constructor(private uploadService: UploadServiceService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
+    
   }
 
   uploadFiles(files:File[]){
     this.files = files
     this.allowedSize = this.lessThanOrEqualMaxSize();
+    this.verificationOfUnallowedType()
   }
   
   deleteFile(index:number){
     this.files.splice(index, 1);
     this.allowedSize = this.lessThanOrEqualMaxSize();
+    this.verificationOfUnallowedType();
   }
 
   lessThanOrEqualMaxSize(){
     let size = 0;
     this.files.forEach(f=>size+=f.size)
     return size/(1024*1024*1024)<=this.maxSize
+  }
+  verificationOfUnallowedType(){
+    if(this.files.length==0) this.allowedType=true
+    //f.type=='application/x-msdownload'
+    let sum = this.files.map(f=>this.unallowedTypes.indexOf(f.type)!=-1?1:0).reduce(
+      //@ts-ignore
+      (previousValue, currentValue) => previousValue==1?currentValue+=1:currentValue+=0, 0
+    )
+    this.allowedType = sum==0
   }
 
 
@@ -72,5 +86,6 @@ export class FileUploadStepperComponent implements OnInit {
       }
     )
   }
-
 }
+
+//f.type=="application/x-msdownload"

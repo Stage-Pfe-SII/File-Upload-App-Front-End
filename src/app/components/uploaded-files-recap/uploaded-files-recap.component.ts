@@ -10,6 +10,7 @@ export class UploadedFilesRecapComponent implements OnInit {
   @Input() files :File[] = [];
   @Output() delete = new EventEmitter();
   @Input() allowedSize : boolean = true
+  @Input() allowedType: boolean = true
 
   constructor() { }
 
