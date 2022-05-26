@@ -1,3 +1,4 @@
+<mat-error *ngIf="!allowedSize">Vous avez dépasser la taille maximum <strong>2Go</strong></mat-error>
 <div class="files-list">
     <p class="no-files" *ngIf="files.length == 0">No files to upload</p>
     <ng-container *ngIf="files.length != 0">
@@ -7,7 +8,7 @@
         </div>
         <div class="file-details">
             <p class="file-name">{{file?.name}}</p>
-            <p class="file-size">{{file?.size | formatFileSize: false}}</p>
+            <p class="file-size">{{file.size | formatFileSize: false}}</p>
         </div>
         <button mat-icon-button class="btn" (click)="deleteFile(i)">
             <mat-icon color="warn">close</mat-icon>

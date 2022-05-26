@@ -16,9 +16,11 @@ export class FileUploadStepperComponent implements OnInit {
 
   files:File[] = []; // les fichiers
   contactDetails!:Transfert; //objet 
+  allowedSize = true
   filesForm!:FormControl;
   stateProgress = 0
   showProgressBar = false
+  maxSize = 2//Go
   
   @ViewChild('stepper') private stepper!: MatStepper;
   @ViewChild('contactForm') private contactForm!: any;
@@ -28,13 +30,22 @@ export class FileUploadStepperComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  uploadFiles(files:any){
+  uploadFiles(files:File[]){
     this.files = files
+    this.allowedSize = this.lessThanOrEqualMaxSize();
   }
   
   deleteFile(index:number){
     this.files.splice(index, 1);
+    this.allowedSize = this.lessThanOrEqualMaxSize();
   }
+
+  lessThanOrEqualMaxSize(){
+    let size = 0;
+    this.files.forEach(f=>size+=f.size)
+    return size/(1024*1024*1024)<=this.maxSize
+  }
+
 
   onContactDetailsFormSubmit($event:any){
     this.contactDetails = $event;

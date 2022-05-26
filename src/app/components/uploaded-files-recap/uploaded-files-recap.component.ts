@@ -7,21 +7,18 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class UploadedFilesRecapComponent implements OnInit {
   list =  Array.from({length: 3}, (_, i) => `Nav Item ${i + 1}`);
-  @Input() files :any[] = [];
+  @Input() files :File[] = [];
   @Output() delete = new EventEmitter();
+  @Input() allowedSize : boolean = true
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  getTotalUploadedFilesSize():number{
-    let sum = 0;
-    this.files.forEach(file => sum += file?.size)
-    return sum;
-  }
-
   deleteFile(index:number){
     this.delete.emit(index);
   }
+
+  
 }
