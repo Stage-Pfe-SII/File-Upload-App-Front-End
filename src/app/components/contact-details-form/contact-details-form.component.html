@@ -13,8 +13,8 @@
 
       <mat-form-field appearance="outline">
         <mat-label>From</mat-label>
-        <input matInput [errorStateMatcher]="matcher" formControlName="sender">
-        <mat-error *ngIf="contactDetailsForm.get('sender')?.hasError('email') && !contactDetailsForm.get('sender')?.hasError('required')">
+        <input matInput [errorStateMatcher]="matcher" formControlName="sender" (input)="onChange()">
+        <mat-error *ngIf="this.contactDetailsForm.get('sender')?.hasError('pattern') && !contactDetailsForm.get('sender')?.hasError('required')">
           Please enter a valid email address
         </mat-error>
         <mat-error *ngIf="contactDetailsForm.get('sender')?.hasError('required')">
