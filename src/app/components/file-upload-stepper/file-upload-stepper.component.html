@@ -57,7 +57,7 @@
         Confirm & Upload
       </button>
     </div>
-    <div class="progressbar" *ngIf="true || stateProgress < 100 && showProgressBar">
+    <div class="progressbar" *ngIf="stateProgress < 100 && showProgressBar">
       <mat-progress-bar
         mode="determinate"
         [value]="stateProgress"
