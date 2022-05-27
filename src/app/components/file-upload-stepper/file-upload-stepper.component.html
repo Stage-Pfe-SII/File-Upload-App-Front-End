@@ -19,7 +19,6 @@
       <div class="rigth-side">
         <app-uploaded-files-recap
           [files]="files"
-          [allowedSize]="allowedSize"
           [allowedType]="allowedType"
           (delete)="deleteFile($event)"
         ></app-uploaded-files-recap>
@@ -31,7 +30,7 @@
         mat-button
         mat-raised-button
         color="primary"
-        [disabled]="files.length == 0 || !allowedSize || !allowedType"
+        [disabled]="files.length == 0 || !allowedType"
         matStepperNext
       >
         Next

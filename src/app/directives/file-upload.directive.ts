@@ -1,6 +1,7 @@
 import { Directive, EventEmitter, HostBinding, HostListener, Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MaxSizeReachedComponent } from '../components/dialogs/max-size-reached/max-size-reached.component';
+import { environment } from 'src/environments/environment';
 
 @Directive({
   selector: '[appFileUpload]'
@@ -10,8 +11,7 @@ export class FileUploadDirective {
   @Output() fileDroped = new EventEmitter();
   @HostBinding('class.isDragOver') isDragOver!:boolean;  
   @Input() totalUploadFilesSize!:number;
-  // @HostBinding('class.isMaxSizeExceded') isMaxSizeExceded!:boolean;
-  maxSize = 1024 * 1024 * 1024 * 2; // 2Go 
+  maxSize = environment.maxSize  
 
   constructor( private dialog: MatDialog){
 

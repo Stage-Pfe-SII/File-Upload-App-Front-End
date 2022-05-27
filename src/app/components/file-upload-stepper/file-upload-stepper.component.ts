@@ -6,7 +6,7 @@ import { Transfert } from 'src/app/models/Transfert.model';
 import { UploadServiceService } from 'src/app/services/upload-service.service';
 import { MessageSuccessDialogComponent } from '../dialogs/message-success-dialog/message-success-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
-
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-file-upload-stepper',
   templateUrl: './file-upload-stepper.component.html',
@@ -59,7 +59,6 @@ export class FileUploadStepperComponent implements OnInit {
   onContactDetailsFormSubmit($event:any){
     this.contactDetails = $event;
   }
-
   resetStepper(){
     this.stepper.reset();
     this.files = [];
@@ -83,4 +82,3 @@ export class FileUploadStepperComponent implements OnInit {
   }
 }
 
-//f.type=="application/x-msdownload"

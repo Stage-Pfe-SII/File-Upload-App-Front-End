@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MaxSizeReachedComponent } from '../dialogs/max-size-reached/max-size-reached.component';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-files-upload',
@@ -13,7 +14,7 @@ export class FilesUploadComponent implements OnInit, ControlValueAccessor {
   @Output() getFiles = new EventEmitter();
   files:any[] = [];
   totalFilesSize = 0;
-  maxSize = 1024 * 1024 * 1024 * 2;
+  maxSize = environment.maxSize;
 
   constructor( private dialog: MatDialog){
 
