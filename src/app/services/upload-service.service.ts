@@ -7,7 +7,7 @@ import { Transfert } from '../models/Transfert.model';
   providedIn: 'root'
 })
 export class UploadServiceService {
-  private baseUrl = 'http://localhost:8080';
+  private baseUrl = 'https://localhost:8080';
 
   constructor(private http:HttpClient) { }
 
