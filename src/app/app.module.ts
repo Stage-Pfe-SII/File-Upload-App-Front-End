@@ -24,6 +24,7 @@ import { AppRoutingModule } from './app.routing';
 import { TransfertHistoryComponent } from './components/transfert-history/transfert-history.component';
 import { TransfertDetailsComponent } from './components/transfert-details/transfert-details.component';
 import { TransfertCardComponent } from './components/transfert-card/transfert-card.component';
+import { TransfertSearchPipe } from './pipes/transfert-search.pipe';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { TransfertCardComponent } from './components/transfert-card/transfert-ca
     TransfertHistoryComponent,
     TransfertDetailsComponent,
     TransfertCardComponent,
+    TransfertSearchPipe,
   ],
   imports: [
     BrowserModule,

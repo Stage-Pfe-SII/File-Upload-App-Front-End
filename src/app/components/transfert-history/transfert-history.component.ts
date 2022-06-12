@@ -9,6 +9,7 @@ import { UserService } from 'src/app/services/user.service';
 export class TransfertHistoryComponent implements OnInit {
 
   user:any;
+  term = '';
   constructor(private userService:UserService) { }
 
   ngOnInit(): void {
@@ -17,4 +18,7 @@ export class TransfertHistoryComponent implements OnInit {
     )
   }
 
+  onSearch(term: string): void {
+    this.term = term;
+  }
 }

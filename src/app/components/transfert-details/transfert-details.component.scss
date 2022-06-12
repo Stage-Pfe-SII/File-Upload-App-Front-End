@@ -4,6 +4,16 @@
     h3{
         color: #7A7A7A;
         font-weight: 400;
+
+        a{
+            text-decoration: none;
+            color: #7A7A7A;
+        }
+        
+        a:hover{
+            color:#7A7A7A;   
+            text-decoration: underline;
+        }
     }
 
 }
@@ -31,6 +41,8 @@
             h3{
                 color: #7A7A7A;
                 font-size: 1rem;
+
+                
             }
 
             .download-times{
@@ -42,6 +54,30 @@
     .files{
         padding: 10px;
         height: 100%;
-        width: 45%;    
+        width: 45%;   
+        overflow-y: auto;
+        
+        .file{
+            border-bottom: 0.5px solid #94A3B8;
+        }
+
+        .file{
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            padding: 4px;
+    
+            .file-name{
+                color: #1E293B;
+                font-size: 0.9rem;
+                margin-bottom: 5px;
+            }
+    
+            .file-size{
+                color: #94A3B8;
+                font-size: 0.8rem;
+                margin-bottom: 0px;
+            }
+        }
     }
 }

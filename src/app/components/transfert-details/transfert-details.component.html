@@ -1,8 +1,10 @@
 <div class="wrapper">
     <div class="header">
-      <h1>Transfert Title</h1>
-      <h3> 10 files . 
-        total size 118 ko
+      <h1>{{transfert?.title}}</h1>
+      <h3> {{transfert?.files.length}} files . 
+            total size 118 ko .
+            <a href="http://localhost:8080/download/{{transfert?.path}}" (click)="copyDownloadLink($event)">download link</a> 
+
     </h3>
     </div>
 
@@ -10,22 +12,27 @@
         <div class="transfert-metadatas">
             <div class="transfert-metadata">
                 <h1>Receiver</h1>
-                <h3>mohammedaminerabhi17@gmail.com</h3>
+                <h3>{{transfert?.receiver?.email}}</h3>
             </div>
             <div class="transfert-metadata">
                 <h1>Sender</h1>
-                <h3>mohammedaminerabhi17@gmail.com</h3>
+                <h3>{{transfert?.sender?.email}}</h3>
             </div>
             <div class="transfert-metadata">
                 <h1>Download Times</h1>
-                <h3 class="download-times">0</h3>
+                <h3 class="download-times">{{transfert?.downloadTimes}}</h3>
             </div>
 
 
         </div>
         <div class="files">
-            <h1>3 files</h1>
-            
+            <h1>{{transfert?.files.length}} files</h1>
+            <div class="file" *ngFor="let file of transfert?.files;let i=index">
+                <div class="file-details">
+                    <p class="file-name">{{file?.name}}</p>
+                    <p class="file-size">{{file?.size | formatFileSize:false}}</p>
+                </div>
+            </div>
         </div>
     </div>
     </div>
