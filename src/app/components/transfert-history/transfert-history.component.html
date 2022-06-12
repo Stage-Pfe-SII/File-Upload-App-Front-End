@@ -1,0 +1,26 @@
+<div class="wrapper">
+    <div class="header">
+      <h1 >Transferts</h1>
+     <div class="actions">
+        <form action="">
+            <input type="text" class="transferts-filter" placeholder="find by transfert title">
+        </form>
+     </div>
+    </div>
+
+    <mat-tab-group>
+        <mat-tab label="Sended">
+          <div class="cards-container">
+            <app-transfert-card *ngFor="let transfert of user?.sendedTransferts" [transfert]="transfert"></app-transfert-card>
+          </div> 
+        </mat-tab>
+        <mat-tab label="Received">
+          <div class="cards-container">
+            <div class="cards-container">
+              <app-transfert-card *ngFor="let transfert of user?.receivedTransferts" [transfert]="transfert"></app-transfert-card>
+            </div> 
+          </div> 
+        </mat-tab>
+      </mat-tab-group>
+
+</div>

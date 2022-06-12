@@ -20,6 +20,10 @@ import { ToastrModule } from 'ngx-toastr';
 import { MessageSuccessDialogComponent } from './components/dialogs/message-success-dialog/message-success-dialog.component';
 import { MaxSizeReachedComponent } from './components/dialogs/max-size-reached/max-size-reached.component';
 import { LayoutComponent } from './layout/layout.component';
+import { AppRoutingModule } from './app.routing';
+import { TransfertHistoryComponent } from './components/transfert-history/transfert-history.component';
+import { TransfertDetailsComponent } from './components/transfert-details/transfert-details.component';
+import { TransfertCardComponent } from './components/transfert-card/transfert-card.component';
 
 
 @NgModule({
@@ -37,6 +41,9 @@ import { LayoutComponent } from './layout/layout.component';
     MessageSuccessDialogComponent,
     MaxSizeReachedComponent,
     LayoutComponent,
+    TransfertHistoryComponent,
+    TransfertDetailsComponent,
+    TransfertCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,6 +51,7 @@ import { LayoutComponent } from './layout/layout.component';
     ReactiveFormsModule,
     HttpClientModule,
     MaterialModule,
+    AppRoutingModule,
     ToastrModule.forRoot()
   ],
   providers: [],

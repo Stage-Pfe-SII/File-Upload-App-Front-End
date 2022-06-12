@@ -1,0 +1,33 @@
+.card{
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-title{
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+a{
+ text-decoration: none;
+ color:#7A7A7A;   
+}
+
+
+
+
+mat-icon:hover{
+    color: #3F51B5;
+}
+
+.transfert-infos{
+    color: #7A7A7A;
+
+    a:hover{
+        color:#7A7A7A;   
+        text-decoration: underline;
+    }
+}

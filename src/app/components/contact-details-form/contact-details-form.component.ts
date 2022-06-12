@@ -31,10 +31,10 @@ export class ContactDetailsFormComponent implements OnInit {
 
   constructor(private fomrBuilder:FormBuilder) {
     this.contactDetailsForm = this.fomrBuilder.group({
-      sender: ['y@n.com',[Validators.required,Validators.email, Validators.pattern(this.regexMail)]],
-      receiver: ['y@n.com',[Validators.required,Validators.email, Validators.pattern(this.regexMail)]],
-      title: ['dada',[Validators.required]],
-      message: ['']
+      sender: ['mohammedaminerabhi20@gmail.com',[Validators.required,Validators.email, Validators.pattern(this.regexMail)]],
+      receiver: ['mohammedaminerabhi17@gmail.com',[Validators.required,Validators.email, Validators.pattern(this.regexMail)]],
+      title: ['File Transfert Test',[Validators.required]],
+      message: ['Message']
     })
     
    }

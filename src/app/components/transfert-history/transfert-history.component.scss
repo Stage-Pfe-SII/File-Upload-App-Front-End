@@ -1,0 +1,42 @@
+.cards-container {
+    padding: 20px 40px;
+    display: grid;
+    grid-gap: 20px;
+  }
+  
+  .transferts-filter{
+    padding: 10px;
+    width: 300px;
+  }
+
+  :host ::ng-deep .mat-tab-labels {
+    background-color: #fff;
+  }
+  
+  @media screen and (min-width: 1300px) {
+    .cards-container {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+  
+  @media screen and (min-width: 800px) and (max-width: 1300px) {
+    .cards-container {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  @media screen and (min-width: 600px) and (max-width: 800px) {
+    .cards-container {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  
+  
+  @media screen and (max-width: 600px) {
+    .cards-container {
+      grid-template-columns: 1fr;
+      padding: 10px;
+    }
+  }
+  
