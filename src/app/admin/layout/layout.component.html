@@ -1,0 +1,39 @@
+<mat-toolbar>
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle();">
+        <mat-icon *ngIf="!sidenav.opened">
+            menu
+        </mat-icon>
+        <mat-icon *ngIf="sidenav.opened">
+            close
+        </mat-icon>
+    </button>
+    <div class="logo">
+         <h1>SII transfer</h1>
+    </div>
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <mat-icon>keyboard_arrow_down</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu" xPosition="before">
+        <button mat-menu-item >
+          <mat-icon>logout</mat-icon>
+          <span>Logout</span>
+        </button>
+      </mat-menu>
+       
+</mat-toolbar>
+    
+    <mat-sidenav-container>
+        <mat-sidenav opened #sidenav="matSidenav" mode="side">
+            <button mat-button class="menu-button" routerLink="/admin/users" routerLinkActive="active-sidebar" [routerLinkActiveOptions]="{exact: true}">
+                <mat-icon>group</mat-icon>
+                <span>Users list</span>
+            </button>
+            <button mat-button class="menu-button" routerLink="/admin/new-user" routerLinkActive="active-sidebar" [routerLinkActiveOptions]="{exact: true}">
+                <mat-icon>person_add</mat-icon>
+                <span>create new user</span>
+            </button>
+        </mat-sidenav>
+        <mat-sidenav-content>
+                <router-outlet></router-outlet>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
