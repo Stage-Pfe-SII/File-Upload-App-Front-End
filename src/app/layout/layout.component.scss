@@ -11,6 +11,7 @@ mat-sidenav {
     border-bottom: 1px solid #e0d9d9;
     display: flex;
     justify-content: space-between;
+    height: 52px;
   }
   
   mat-sidenav-content {
@@ -22,7 +23,7 @@ mat-sidenav {
   }
   
   mat-sidenav-container {
-    height: calc(100vh - 65px);
+    height: calc(100vh - 53px);
     /* background-color: #eee; */
   }
   

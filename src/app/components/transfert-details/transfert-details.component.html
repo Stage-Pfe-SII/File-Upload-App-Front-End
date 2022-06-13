@@ -1,11 +1,18 @@
 <div class="wrapper">
     <div class="header">
-      <h1>{{transfert?.title}}</h1>
-      <h3> {{transfert?.files.length}} files . 
+      <h1>
+          {{transfert?.title}}
+          <h3> {{transfert?.files.length}} files . 
             total size 118 ko .
             <a href="http://localhost:8080/download/{{transfert?.path}}" (click)="copyDownloadLink($event)">download link</a> 
 
-    </h3>
+    </h3>    
+    </h1>
+    <div class="actions">
+        <a href="http://localhost:8080/download/{{transfert?.path}}" mat-button class="add-btn" matTooltip="Download" matTooltipPosition="left">
+            <mat-icon>download</mat-icon>
+            Download Transfert
+          </a>    </div>
     </div>
 
     <div class="transfert-details">
@@ -26,11 +33,16 @@
 
         </div>
         <div class="files">
-            <h1>{{transfert?.files.length}} files</h1>
+            <h1>Files</h1>
             <div class="file" *ngFor="let file of transfert?.files;let i=index">
                 <div class="file-details">
                     <p class="file-name">{{file?.name}}</p>
                     <p class="file-size">{{file?.size | formatFileSize:false}}</p>
+                </div>
+                <div class="actions">
+                    <a href="http://localhost:8080/download/file/{{file?.path}}" mat-button class="add-btn">
+                        <mat-icon>download</mat-icon>
+                      </a>  
                 </div>
             </div>
         </div>
