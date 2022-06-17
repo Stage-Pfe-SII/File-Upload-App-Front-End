@@ -4,12 +4,12 @@
           {{transfert?.title}}
           <h3> {{transfert?.files.length}} files . 
             total size 118 ko .
-            <a href="http://localhost:8080/download/{{transfert?.path}}" (click)="copyDownloadLink($event)">download link</a> 
+            <a href="https://localhost:8080/download/{{transfert?.path}}" (click)="copyDownloadLink($event)">download link</a> 
 
     </h3>    
     </h1>
     <div class="actions">
-        <a href="http://localhost:8080/download/{{transfert?.path}}" mat-button class="add-btn" matTooltip="Download" matTooltipPosition="left">
+        <a href="https://localhost:8080/download/{{transfert?.path}}" mat-button class="add-btn" matTooltip="Download" matTooltipPosition="left">
             <mat-icon>download</mat-icon>
             Download Transfert
           </a>    </div>
@@ -40,7 +40,7 @@
                     <p class="file-size">{{file?.size | formatFileSize:false}}</p>
                 </div>
                 <div class="actions">
-                    <a href="http://localhost:8080/download/file/{{file?.path}}" mat-button class="add-btn">
+                    <a href="https://localhost:8080/download/file/{{file?.path}}" mat-button class="add-btn">
                         <mat-icon>download</mat-icon>
                       </a>  
                 </div>

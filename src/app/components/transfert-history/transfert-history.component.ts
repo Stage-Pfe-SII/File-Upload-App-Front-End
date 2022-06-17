@@ -13,8 +13,10 @@ export class TransfertHistoryComponent implements OnInit {
   constructor(private userService:UserService) { }
 
   ngOnInit(): void {
-    this.userService.getUser(1).subscribe(
-      data=> this.user = data
+    this.userService.getUser(2).subscribe(
+      data=> {
+        this.user = data;
+      }
     )
   }
 
