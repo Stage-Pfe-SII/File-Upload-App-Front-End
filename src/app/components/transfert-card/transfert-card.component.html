@@ -6,8 +6,9 @@
     <div class="transfert-infos">
         {{transfert?.files?.length}} file . 
         download times {{transfert?.downloadTimes}} . 
-        <a href="https://localhost:8080/download/{{transfert?.path}}" (click)="copyDownloadLink($event)">download link</a> 
-    
+        <span [ngClass]="{'expire-soon': remainingDays() <= 1}">
+            expire in {{remainingDays() | remaningDays}}</span>
+        <!-- <a href="https://localhost:8080/download/{{transfert?.path}}" (click)="copyDownloadLink($event)">download link</a>  -->
     </div>
    </div>
    <div class="details-icon">

@@ -9,11 +9,12 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 export class TransfertCardComponent implements OnInit {
 
   @Input() transfert:any;
-  today = new Date();
+
   
   constructor(private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
+
   }
 
   copyDownloadLink(event:any){
@@ -26,6 +27,8 @@ export class TransfertCardComponent implements OnInit {
     this.snackBar.open('Download Link copied to clipboard!','',{
       duration : 1000
     })
-
 }
+  remainingDays(){
+    return  Math.round(Math.abs(new Date().getTime() - new Date(this.transfert.expirationDate).getTime()) / (1000 * 60 * 60 * 24));
+  }
 }

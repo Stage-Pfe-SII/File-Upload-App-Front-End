@@ -75,6 +75,7 @@ export class FileUploadStepperComponent implements OnInit {
           this.stateProgress = Math.round( 100*event.loaded/event.total)
           if(this.stateProgress==100){
             this.dialog.open(MessageSuccessDialogComponent)
+            setTimeout(()=>this.stateProgress=0,2000)
           }
         }
       }

@@ -25,6 +25,8 @@ import { TransfertHistoryComponent } from './components/transfert-history/transf
 import { TransfertDetailsComponent } from './components/transfert-details/transfert-details.component';
 import { TransfertCardComponent } from './components/transfert-card/transfert-card.component';
 import { TransfertSearchPipe } from './pipes/transfert-search.pipe';
+import { RemaningDaysPipe } from './pipes/remaning-days.pipe';
+import { LoaderComponent } from './components/loader/loader.component';
 
 
 @NgModule({
@@ -46,6 +48,8 @@ import { TransfertSearchPipe } from './pipes/transfert-search.pipe';
     TransfertDetailsComponent,
     TransfertCardComponent,
     TransfertSearchPipe,
+    RemaningDaysPipe,
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,
