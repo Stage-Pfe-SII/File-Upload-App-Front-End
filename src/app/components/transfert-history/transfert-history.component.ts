@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LoaderService } from 'src/app/services/loader.service';
 import { UserService } from 'src/app/services/user.service';
-
 @Component({
   selector: 'app-transfert-history',
   templateUrl: './transfert-history.component.html',
@@ -8,13 +8,13 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class TransfertHistoryComponent implements OnInit {
 
-  user:any;
+  user: any;
   term = '';
-  constructor(private userService:UserService) { }
+  constructor(private userService: UserService, public loaderService: LoaderService) { }
 
   ngOnInit(): void {
-    this.userService.getUser(2).subscribe(
-      data=> {
+    this.userService.getUser(3).subscribe(
+      data => {
         this.user = data;
       }
     )

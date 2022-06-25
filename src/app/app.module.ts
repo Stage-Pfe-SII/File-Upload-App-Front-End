@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -27,6 +27,7 @@ import { TransfertCardComponent } from './components/transfert-card/transfert-ca
 import { TransfertSearchPipe } from './pipes/transfert-search.pipe';
 import { RemaningDaysPipe } from './pipes/remaning-days.pipe';
 import { LoaderComponent } from './components/loader/loader.component';
+import { LoaderInterceptorService } from './services/loader-interceptor.service';
 
 
 @NgModule({
@@ -60,7 +61,9 @@ import { LoaderComponent } from './components/loader/loader.component';
     AppRoutingModule,
     ToastrModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptorService, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

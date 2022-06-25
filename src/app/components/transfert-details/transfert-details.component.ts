@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
+import { LoaderService } from 'src/app/services/loader.service';
 import { TransfertService } from 'src/app/services/transfert.service';
 
 @Component({
@@ -16,7 +17,8 @@ export class TransfertDetailsComponent implements OnInit {
   constructor(
     private transfertService:TransfertService,
     private route:ActivatedRoute,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    public loaderService:LoaderService
     ) { }
 
 

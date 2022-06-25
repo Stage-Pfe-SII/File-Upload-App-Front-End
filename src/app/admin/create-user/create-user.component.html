@@ -1,1 +1,68 @@
-<p>create-user works!</p>
+<div class="wrapper">
+    <div class="header">
+        <h1>Create new User</h1>
+    </div>
+    <div class="content">
+        <form class="registration-form" [formGroup]="registrationForm" (ngSubmit)="onSubmit()" autocomplete="off">
+            <mat-form-field  appearance="outline">
+              <mat-label>Username</mat-label>
+              <input matInput [errorStateMatcher]="matcher" formControlName="username">
+              <mat-error *ngIf="this.registrationForm.get('username')?.hasError('pattern') && !registrationForm.get('username')?.hasError('required')">
+                Please enter a valid username 
+              </mat-error>
+              <mat-error *ngIf="registrationForm.get('username')?.hasError('required')">
+                Username is <strong>required</strong>
+              </mat-error>
+              <mat-error *ngIf="registrationForm.get('username')?.hasError('usernameExists')">
+                Username is <strong>already used.</strong>
+              </mat-error>
+            </mat-form-field>
+      
+            <mat-form-field appearance="outline">
+              <mat-label>Email</mat-label>
+              <input matInput [errorStateMatcher]="matcher" formControlName="email">
+              <mat-error *ngIf="this.registrationForm.get('email')?.hasError('pattern') && !registrationForm.get('email')?.hasError('required')">
+                Please enter a valid email address
+              </mat-error>
+              <mat-error *ngIf="registrationForm.get('email')?.hasError('required')">
+               Email is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+       
+            
+            <div class="form-row">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input [type]="hidePassword? 'password' : 'text'" matInput [errorStateMatcher]="matcher" formControlName="password">
+                    <button type="button" mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
+                        <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                    <mat-error *ngIf="registrationForm.get('password')?.hasError('required')">
+                      password is <strong>required</strong>
+                    </mat-error>
+                  </mat-form-field>
+              
+              <mat-form-field appearance="outline">
+                  <mat-label>Password confirmation</mat-label>
+                  <input [type]="hidePasswordConfirmation? 'password' : 'text'" matInput [errorStateMatcher]="matcher" formControlName="password_confirmation">
+                  <button type="button" mat-icon-button matSuffix (click)="hidePasswordConfirmation = !hidePasswordConfirmation" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePasswordConfirmation">
+                    <mat-icon>{{hidePasswordConfirmation ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                  <mat-error *ngIf="registrationForm.get('password_confirmation')?.hasError('required')">
+                    password confirmation is <strong>required</strong>
+                  </mat-error>        
+                  <mat-error *ngIf="registrationForm.hasError('mistmatch') && !registrationForm.get('mistmatch')?.hasError('required')">
+                    password & password confirmation must be the same
+                  </mat-error>        
+                  
+              </mat-form-field>
+          </div>
+  
+  
+              <div class="commands">
+                <button type="submit" color="primary" [disabled]="registrationForm.invalid"  mat-raised-button>Submit</button>
+              </div>
+        </form>
+    </div>
+   
+</div>

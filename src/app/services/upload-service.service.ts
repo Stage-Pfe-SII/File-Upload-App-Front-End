@@ -2,12 +2,13 @@ import { HttpClient, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Transfert } from '../models/Transfert.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UploadServiceService {
-  private baseUrl = 'https://localhost:8080';
+  private baseUrl = environment.baseUrl;
 
   constructor(private http:HttpClient) { }
 

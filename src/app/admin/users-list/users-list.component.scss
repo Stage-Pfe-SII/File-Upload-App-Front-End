@@ -1,0 +1,78 @@
+.container {
+  position: relative;
+  padding: 0;
+
+
+
+  .loading-shade {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 56px;
+    right: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+  .mat-table {
+    height: 330px;
+    overflow: auto;
+    width: 100%;
+    margin: 0;
+
+    .mat-column-id {
+      flex: 0 0 10%;
+    }
+
+    .mat-column-username {
+      flex: 0 0 35%;
+    }
+
+    .mat-column-email {
+      flex: 0 0 35%;
+
+    }
+
+    .no-data {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    .mat-column-password {
+      flex: 0 0 20%;
+
+      input {
+        max-width: 100px;
+        border: none;
+      }
+
+      input[type="password"] {
+        font-family: Verdana;
+        letter-spacing: 0.125em;
+      }
+
+      .password {
+        margin-right: 10px;
+      }
+    }
+
+    .mat-column-actions {
+      max-width: 50px;
+      padding-right: 8px;
+    }
+
+    .mat-no-data-row {
+      // height: calc(330px - 57px);
+      width: 100%;
+      display: flex;
+
+      .mat-cell {
+        border: none;
+      }
+    }
+  }
+}

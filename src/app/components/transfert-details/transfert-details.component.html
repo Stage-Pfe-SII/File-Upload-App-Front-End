@@ -1,50 +1,60 @@
-<div class="wrapper">
-    <div class="header">
-      <h1>
-          {{transfert?.title}}
-          <h3> {{transfert?.files.length}} files . 
-            total size 118 ko .
-            <a href="https://localhost:8080/download/{{transfert?.path}}" (click)="copyDownloadLink($event)">download link</a> 
+<div *ngIf="loaderService.isLoading | async ;else elseBlock" class="spinner-container">
+    <mat-spinner [diameter]="70"></mat-spinner>
+</div>
+<ng-template #elseBlock>
+    <div class="wrapper">
 
-    </h3>    
-    </h1>
-    <div class="actions">
-        <a href="https://localhost:8080/download/{{transfert?.path}}" mat-button class="add-btn" matTooltip="Download" matTooltipPosition="left">
-            <mat-icon>download</mat-icon>
-            Download Transfert
-          </a>    </div>
-    </div>
+        <div class="header">
+            <h1>
+                {{transfert?.title}}
+                <h3> {{transfert?.files.length}} files .
+                    total size 118 ko .
+                    <a href="https://localhost:8443/download/{{transfert?.path}}"
+                        (click)="copyDownloadLink($event)">download link</a>
 
-    <div class="transfert-details">
-        <div class="transfert-metadatas">
-            <div class="transfert-metadata">
-                <h1>Receiver</h1>
-                <h3>{{transfert?.receiver?.email}}</h3>
-            </div>
-            <div class="transfert-metadata">
-                <h1>Sender</h1>
-                <h3>{{transfert?.sender?.email}}</h3>
-            </div>
-            <div class="transfert-metadata">
-                <h1>Download Times</h1>
-                <h3 class="download-times">{{transfert?.downloadTimes}}</h3>
-            </div>
-
-
-        </div>
-        <div class="files">
-            <h1>Files</h1>
-            <div class="file" *ngFor="let file of transfert?.files;let i=index">
-                <div class="file-details">
-                    <p class="file-name">{{file?.name}}</p>
-                    <p class="file-size">{{file?.size | formatFileSize:false}}</p>
-                </div>
-                <div class="actions">
-                    <a href="https://localhost:8080/download/file/{{file?.path}}" mat-button class="add-btn">
-                        <mat-icon>download</mat-icon>
-                      </a>  
-                </div>
+                </h3>
+            </h1>
+            <div class="actions">
+                <a href="https://localhost:8443/download/{{transfert?.path}}" mat-button class="add-btn"
+                    matTooltip="Download" matTooltipPosition="left">
+                    <mat-icon>download</mat-icon>
+                    Download Transfert
+                </a>
             </div>
         </div>
+
+        <div class="transfert-details">
+            <div class="transfert-metadatas">
+                <div class="transfert-metadata">
+                    <h1>Receiver</h1>
+                    <h3>{{transfert?.receiver?.email}}</h3>
+                </div>
+                <div class="transfert-metadata">
+                    <h1>Sender</h1>
+                    <h3>{{transfert?.sender?.email}}</h3>
+                </div>
+                <div class="transfert-metadata">
+                    <h1>Download Times</h1>
+                    <h3 class="download-times">{{transfert?.downloadTimes}}</h3>
+                </div>
+
+
+            </div>
+            <div class="files">
+                <h1>Files</h1>
+                <div class="file" *ngFor="let file of transfert?.files;let i=index">
+                    <div class="file-details">
+                        <p class="file-name">{{file?.name}}</p>
+                        <p class="file-size">{{file?.size | formatFileSize:false}}</p>
+                    </div>
+                    <div class="actions">
+                        <a href="https://localhost:8443/download/file/{{file?.path}}" mat-button class="add-btn">
+                            <mat-icon>download</mat-icon>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    </div>
+
+</ng-template>

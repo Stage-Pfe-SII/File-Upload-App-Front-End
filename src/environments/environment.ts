@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  maxSize: 1024 * 1024 * 1024 * 2
+  maxSize: 1024 * 1024 * 1024 * 2,
+  baseUrl: 'https://localhost:8443'
 };
 
 /*

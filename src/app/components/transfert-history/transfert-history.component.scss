@@ -2,6 +2,7 @@
     padding: 20px 40px;
     display: grid;
     grid-gap: 20px;
+
   }
   
   .transferts-filter{
@@ -39,4 +40,9 @@
       padding: 10px;
     }
   }
-  
+  .spinner-container{
+    padding: 40px;
+     display: flex;
+    justify-content: center;
+    align-items: center;
+}

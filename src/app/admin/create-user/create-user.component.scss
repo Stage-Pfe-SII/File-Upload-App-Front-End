@@ -1,0 +1,29 @@
+.content{
+    display: flex;
+    justify-content: center;
+   
+    .registration-form{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+
+        .form-row{
+            display: flex;
+            margin: 0;
+            justify-content: space-between;
+        
+           mat-form-field{
+                width: 48%;
+            }
+        }
+    }
+    
+    :host ::ng-deep .mat-form-field-infix {
+        padding: 0.75em 0px;
+    }
+    
+
+    
+    
+}

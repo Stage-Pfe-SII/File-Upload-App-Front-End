@@ -1,41 +1,60 @@
 <form class="contact-form" [formGroup]="contactDetailsForm" (ngSubmit)="onSubmit()" autocomplete="off">
-    <div class="form-row">
-      <mat-form-field  appearance="outline">
-        <mat-label>Send to</mat-label>
-        <input matInput [errorStateMatcher]="matcher" formControlName="receiver">
-        <mat-error *ngIf="this.contactDetailsForm.get('receiver')?.hasError('pattern') && !contactDetailsForm.get('receiver')?.hasError('required')">
-          Please enter a valid email address
-        </mat-error>
-        <mat-error *ngIf="contactDetailsForm.get('receiver')?.hasError('required')">
-          Reciever email is <strong>required</strong>
-        </mat-error>
-      </mat-form-field>
+  <div class="form-row">
 
-      <mat-form-field appearance="outline">
-        <mat-label>From</mat-label>
-        <input matInput [errorStateMatcher]="matcher" formControlName="sender">
-        <mat-error *ngIf="this.contactDetailsForm.get('sender')?.hasError('pattern') && !contactDetailsForm.get('sender')?.hasError('required')">
-          Please enter a valid email address
-        </mat-error>
-        <mat-error *ngIf="contactDetailsForm.get('sender')?.hasError('required')">
-          Sender email is <strong>required</strong>
-        </mat-error>
-      </mat-form-field>
-    </div>
 
     <mat-form-field appearance="outline">
-      <mat-label>Title</mat-label>
-      <input matInput [errorStateMatcher]="matcher" formControlName="title">
-      <mat-error *ngIf="contactDetailsForm.get('title')?.hasError('required')">
-        Title is <strong>required</strong>
+      <mat-label>Send to</mat-label>
+      <input type="text" placeholder="Send To" aria-label="Send To" matInput [formControl]="receiver"
+        [matAutocomplete]="receiverAuto">
+      <mat-autocomplete autoActiveFirstOption #receiverAuto="matAutocomplete">
+        <mat-option *ngFor="let option of receiverFilteredOptions | async" [value]="option.username">
+          {{option.username}}
+        </mat-option>
+      </mat-autocomplete>
+      <mat-error
+        *ngIf="this.contactDetailsForm.get('receiver')?.hasError('pattern') && !contactDetailsForm.get('receiver')?.hasError('required')">
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="contactDetailsForm.get('receiver')?.hasError('required')">
+        Reciever email is <strong>required</strong>
       </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
-        <mat-label>Message</mat-label>
-        <textarea matInput [errorStateMatcher]="matcher" formControlName="message"></textarea>
+      <mat-label>From</mat-label>
+      <input type="text" placeholder="From" aria-label="From" matInput [formControl]="sender" [matAutocomplete]="auto">
+      <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+        <mat-option *ngFor="let option of senderFilteredOptions | async" [value]="option.username">
+          {{option.username}}
+        </mat-option>
+      </mat-autocomplete>
+      <mat-error
+        *ngIf="this.contactDetailsForm.get('sender')?.hasError('pattern') && !contactDetailsForm.get('sender')?.hasError('required')">
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="contactDetailsForm.get('sender')?.hasError('required')">
+        Sender email is <strong>required</strong>
+      </mat-error>
     </mat-form-field>
-        <div class="commands">
-          <button type="submit" color="primary"  mat-raised-button>Next</button>
-        </div>
-  </form>
+
+  </div>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Title</mat-label>
+    <input matInput [errorStateMatcher]="matcher" formControlName="title">
+    <mat-error *ngIf="contactDetailsForm.get('title')?.hasError('required')">
+      Title is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Message</mat-label>
+    <textarea matInput [errorStateMatcher]="matcher" formControlName="message"></textarea>
+  </mat-form-field>
+
+
+
+  <div class="commands">
+    <button type="submit" color="primary" mat-raised-button>Next</button>
+  </div>
+</form>

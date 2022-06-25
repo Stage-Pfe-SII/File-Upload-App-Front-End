@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  private baseUrl = 'https://localhost:8080';
+  private baseUrl = environment.baseUrl;
 
   constructor(private http:HttpClient) { }
 
@@ -16,5 +17,9 @@ export class UserService {
 
   getUser(id:number):Observable<any>{
     return this.http.get(`${this.baseUrl}/users/${id}`);
+  }
+
+  createUser(user:any):Observable<any>{
+    return this.http.post(`${this.baseUrl}/users`,user);
   }
 }
